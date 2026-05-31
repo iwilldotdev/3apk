@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dor-checklist.json",
+  "title": "DoRChecklist",
+  "description": "Definition of Ready checklist embedded in every BacklogItem. All gates must be true for the story to pass DoR and enter sprint planning. Mirrors the Go DoRChecklist struct.",
+  "type": "object",
+  "required": ["passed"],
+  "properties": {
+    "problem_clear": {
+      "type": "boolean",
+      "description": "The problem statement is clear and unambiguous."
+    },
+    "testable_ac": {
+      "type": "boolean",
+      "description": "Acceptance criteria are written in a testable format (Given/When/Then or checklist)."
+    },
+    "dependencies_surfaced": {
+      "type": "boolean",
+      "description": "All known dependencies on other stories or systems have been identified and documented."
+    },
+    "nfr_flags_set": {
+      "type": "boolean",
+      "description": "Non-functional requirement flags (performance, security, accessibility) have been evaluated."
+    },
+    "passed": {
+      "type": "boolean",
+      "description": "Aggregate: true when all four gates above are true. Used to filter the Planning Worksheet view."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "backlog-item.json",
+  "title": "BacklogItem",
+  "description": "A single item in the 3APK Backlog Notion database. Mirrors the Go BacklogItem struct and drives Notion field definitions, skill output shapes, and CSV export columns.",
+  "type": "object",
+  "required": ["id", "title", "status", "dor"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the backlog item (e.g. UUID or Notion page ID)."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short human-readable title for the story."
+    },
+    "raw_request": {
+      "type": "string",
+      "description": "Original raw request text before AI refinement."
+    },
+    "user_story": {
+      "type": "string",
+      "description": "Refined user story in 'As a … I want … so that …' format."
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "description": "Testable acceptance criteria derived from the user story.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estimate_hours": {
+      "type": "number",
+      "description": "AI-suggested or team-adjusted estimate in hours. Nullable when not yet estimated."
+    },
+    "estimate_points": {
+      "type": "integer",
+      "description": "AI-suggested or team-adjusted estimate in story points. Nullable when not yet estimated."
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "IDs or titles of other backlog items this story depends on.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "description": "Identified risks or unknowns for this story.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dor": {
+      "$ref": "dor-checklist.json",
+      "description": "Definition of Ready checklist evaluation for this item."
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the backlog item. Draft = newly created; Refining = skill chain in progress; DoR_Pass = ready for sprint; DoR_Fail = needs more refinement; Planned = committed to a sprint; Done = completed.",
+      "enum": [
+        "Draft",
+        "Refining",
+        "DoR_Pass",
+        "DoR_Fail",
+        "Planned",
+        "Done"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

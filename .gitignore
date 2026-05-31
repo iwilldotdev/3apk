@@ -1,0 +1,8 @@
+.compozy/
+docs/
+
+# Python (validation scripts in kit/)
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "metric-snapshot.json",
+  "title": "MetricSnapshot",
+  "description": "Per-sprint KPI capture for the 3APK pilot. One row per sprint in the Notion Metrics database. Fields align with PRD success metrics: EAR, DoR pass rate, planning minutes, reopen count, and team confidence.",
+  "type": "object",
+  "required": ["sprint_id", "sprint_name", "captured_at", "story_count"],
+  "properties": {
+    "sprint_id": {
+      "type": "string",
+      "description": "Foreign key to the Sprint this snapshot belongs to."
+    },
+    "sprint_name": {
+      "type": "string",
+      "description": "Human-readable sprint label (e.g. 'Sprint 1 — Baseline')."
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date when this snapshot was captured (end of sprint)."
+    },
+    "story_count": {
+      "type": "integer",
+      "description": "Number of stories committed to the sprint. Required for rate calculations."
+    },
+    "ear": {
+      "type": "number",
+      "description": "Estimation Accuracy Ratio: Sum(actual hours) / Sum(estimated hours). Target range: 0.85–1.15. Lower values indicate over-estimation; higher values indicate under-estimation."
+    },
+    "dor_pass_rate": {
+      "type": "number",
+      "description": "Definition of Ready pass rate as a fraction (0.0–1.0). Calculated as DoR-passed stories / total planned stories. Target: ≥0.80."
+    },
+    "planning_minutes": {
+      "type": "number",
+      "description": "Total planning + refinement time in minutes (participant-minutes = duration × number of participants). Baseline comparison target: −30% reduction vs. baseline sprint."
+    },
+    "reopen_count": {
+      "type": "integer",
+      "description": "Number of stories moved back (reopened) during the sprint due to scope gaps or missing acceptance criteria. Target: −25% vs. baseline."
+    },
+    "confidence_score": {
+      "type": "number",
+      "description": "Team planning confidence score (1.0–5.0 scale) from anonymous post-sprint survey. Target: ≥4.0."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Facilitator observation notes for this sprint (qualitative context for PEX report)."
+    },
+    "phase": {
+      "type": "string",
+      "description": "Pilot phase label for grouping snapshots in dashboard views.",
+      "enum": ["baseline", "intervention", "evidence"]
+    }
+  },
+  "additionalProperties": false
+}

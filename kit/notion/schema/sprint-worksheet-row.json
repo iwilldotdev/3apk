@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sprint-worksheet-row.json",
+  "title": "SprintWorksheetRow",
+  "description": "A single row in the 3APK Planning Worksheet Notion database, linking a DoR-passed backlog item to a sprint with team-adjusted estimates. Mirrors the Go SprintWorksheetRow struct and drives the canonical CSV export columns.",
+  "type": "object",
+  "required": ["story_id", "sprint_id", "final_estimate_hours", "human_adjustment_log"],
+  "properties": {
+    "story_id": {
+      "type": "string",
+      "description": "Foreign key to the BacklogItem.id this row references."
+    },
+    "sprint_id": {
+      "type": "string",
+      "description": "Foreign key to the Sprint this item is committed to."
+    },
+    "title": {
+      "type": "string",
+      "description": "Denormalised story title for worksheet readability."
+    },
+    "user_story": {
+      "type": "string",
+      "description": "Denormalised user story text for quick reference during planning."
+    },
+    "acceptance_criteria": {
+      "type": "string",
+      "description": "Denormalised acceptance criteria, joined from the array for CSV compatibility."
+    },
+    "ai_estimate_hours": {
+      "type": "number",
+      "description": "AI-suggested estimate range midpoint in hours. Nullable when the skill has not produced an estimate."
+    },
+    "final_estimate_hours": {
+      "type": "number",
+      "description": "Team-adjusted final estimate in hours after human review. Required for sprint commitment."
+    },
+    "final_estimate_points": {
+      "type": "integer",
+      "description": "Team-adjusted final estimate in story points. Nullable when team uses hours only."
+    },
+    "human_adjustment_log": {
+      "type": "string",
+      "description": "Mandatory log of why the team adjusted the AI estimate. Records rationale for PEX evidence and estimate accuracy tracking."
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Team member assigned to the story for the sprint."
+    },
+    "dor_passed": {
+      "type": "boolean",
+      "description": "Denormalised DoR pass status from the linked BacklogItem. Worksheet view filters on this = true."
+    }
+  },
+  "additionalProperties": false
+}
