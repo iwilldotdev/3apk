@@ -1,0 +1,62 @@
+[
+  {
+    "id": "nova-001",
+    "title": "Add OAuth provider to customer portal",
+    "raw_request": "Clients keep asking to log in with Google — can we add that?",
+    "user_story": "",
+    "acceptance_criteria": [],
+    "dependencies": [],
+    "risks": [],
+    "dor": {
+      "problem_clear": false,
+      "testable_ac": false,
+      "dependencies_surfaced": false,
+      "nfr_flags_set": false,
+      "passed": false
+    },
+    "status": "Draft"
+  },
+  {
+    "id": "nova-002",
+    "title": "Billing webhook retry logic",
+    "raw_request": "Stripe webhooks fail sometimes and invoices get out of sync",
+    "user_story": "As a finance admin, I want failed billing webhooks to retry automatically so that invoice status stays accurate.",
+    "acceptance_criteria": [
+      "Given a webhook delivery fails, when the retry window opens, then the system retries up to 3 times"
+    ],
+    "estimate_hours": 6,
+    "dependencies": ["nova-external-stripe-api"],
+    "risks": ["Stripe rate limits during burst retries"],
+    "dor": {
+      "problem_clear": true,
+      "testable_ac": false,
+      "dependencies_surfaced": true,
+      "nfr_flags_set": false,
+      "passed": false
+    },
+    "status": "DoR_Fail"
+  },
+  {
+    "id": "nova-003",
+    "title": "Sprint worksheet CSV export",
+    "raw_request": "We need to push sprint plans into Jira without copy-paste hell",
+    "user_story": "As a tech lead, I want to export the planning worksheet to a canonical CSV so that I can import sprint commitments into Jira or Trello.",
+    "acceptance_criteria": [
+      "Given DoR-passed stories in the worksheet, when I export CSV, then the file uses the 13-column order from COLUMNS.md",
+      "Given acceptance criteria contain commas or line breaks, when exported, then fields are RFC 4180 quoted",
+      "Given a completed export, when I import into Jira using the recipe, then all required issue fields populate"
+    ],
+    "estimate_hours": 4,
+    "estimate_points": 3,
+    "dependencies": [],
+    "risks": ["UTF-8 encoding edge cases on Windows Excel"],
+    "dor": {
+      "problem_clear": true,
+      "testable_ac": true,
+      "dependencies_surfaced": true,
+      "nfr_flags_set": true,
+      "passed": true
+    },
+    "status": "DoR_Pass"
+  }
+]

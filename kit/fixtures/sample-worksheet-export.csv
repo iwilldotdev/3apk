@@ -1,0 +1,15 @@
+story_id,sprint_id,title,user_story,acceptance_criteria,ai_estimate_hours,final_estimate_hours,final_estimate_points,human_adjustment_log,assigned_to,dor_passed,dependencies,status
+nova-003,sprint-baseline-01,Sprint worksheet CSV export,"As a tech lead, I want to export the planning worksheet to a canonical CSV so that I can import sprint commitments into Jira or Trello.","Given DoR-passed stories in the worksheet
+When I export CSV
+Then the file uses the 13-column order from COLUMNS.md
+Given acceptance criteria contain commas, or line breaks
+When exported
+Then fields are RFC 4180 quoted",4,5,5,"Increased from 4h — CSV quoting and cross-tool import edge cases",Alex Chen,true,,DoR_Pass
+nova-003,sprint-intervention-02,Sprint worksheet CSV export,"As a tech lead, I want to export the planning worksheet to a canonical CSV so that I can import sprint commitments into Jira or Trello.","Given DoR-passed stories in the worksheet
+When I export CSV
+Then the file uses the 13-column order from COLUMNS.md",4,4,3,"Held at 4h after assisted refinement reduced unknowns",Alex Chen,true,,Planned
+nova-003,sprint-evidence-03,Sprint worksheet CSV export,"As a tech lead, I want to export the planning worksheet to a canonical CSV so that I can import sprint commitments into Jira or Trello.","Given a completed export
+When I import into Jira using the recipe
+Then all required issue fields populate",3.5,3.5,3,"No adjustment — team aligned with AI range midpoint",Sam Rivera,true,,Planned
+nova-001,sprint-baseline-01,Add OAuth provider to customer portal,,,8,8,5,"Draft story — should not appear in DoR-filtered worksheet view",Jordan Lee,false,,Draft
+nova-002,sprint-baseline-01,Billing webhook retry logic,"As a finance admin, I want failed billing webhooks to retry automatically so that invoice status stays accurate.","Given a webhook delivery fails, when the retry window opens, then the system retries up to 3 times",6,6,5,"DoR fail — missing testable AC format and NFR flags",Sam Rivera,false,nova-external-stripe-api,DoR_Fail

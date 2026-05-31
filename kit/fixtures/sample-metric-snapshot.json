@@ -1,0 +1,28 @@
+[
+  {
+    "sprint_id": "sprint-baseline-01",
+    "sprint_name": "Sprint 1 — Baseline (unassisted)",
+    "captured_at": "2026-04-18",
+    "story_count": 5,
+    "ear": 1.22,
+    "dor_pass_rate": 0.4,
+    "planning_minutes": 180,
+    "reopen_count": 2,
+    "confidence_score": 2.8,
+    "notes": "Baseline week: team ran planning without skills. Two stories reopened mid-sprint due to vague AC. DoR gate not enforced.",
+    "phase": "baseline"
+  },
+  {
+    "sprint_id": "sprint-intervention-02",
+    "sprint_name": "Sprint 2 — Intervention (3APK assisted)",
+    "captured_at": "2026-05-02",
+    "story_count": 5,
+    "ear": 0.96,
+    "dor_pass_rate": 0.8,
+    "planning_minutes": 120,
+    "reopen_count": 1,
+    "confidence_score": 4.2,
+    "notes": "First assisted cycle: refinement skills + DoR gate active. Planning time down 33% vs baseline. One reopen on integration story.",
+    "phase": "intervention"
+  }
+]
