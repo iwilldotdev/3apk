@@ -17,10 +17,10 @@ README = ROOT / "README.md"
 KIT_SUBDIRS = ("skills", "notion", "exports", "fixtures")
 
 USAGE_MARKERS = (
-    "Refinar um item",
-    "Planejar um sprint",
-    "Registrar métricas",
-    "Piloto sugerido",
+    "Refine an item",
+    "Plan a sprint",
+    "Record metrics",
+    "Suggested pilot",
 )
 
 SKILL_PATHS = (
@@ -94,7 +94,7 @@ def test_partner_company_documented() -> None:
 
 def test_llm_agnostic_note() -> None:
     text = read_readme()
-    assert re.search(r"LLM-agnóstico|LLM agnostic|LLM-agnostic", text, re.I)
+    assert re.search(r"LLM agnostic|LLM-agnostic", text, re.I)
 
 
 def test_pex_report_linked() -> None:

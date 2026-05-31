@@ -1,90 +1,90 @@
 # 3APK — AI-Augmented Agile Planning Kit
 
-Kit de planejamento ágil aumentado por IA para **micro times de desenvolvimento** (2–5 pessoas). Combina **skills portáteis** (prompt chains com aprovação humana), um **hub Notion** (backlog, DoR, planning, métricas) e **exportação manual** para Jira ou Trello.
+An AI-augmented agile planning kit for **development teams**. It combines **portable skills** (prompt chains with human approval), a **Notion hub** (backlog, DoR, planning, metrics), and **manual export** to Jira or Trello.
 
-Desenvolvido no contexto de um Projeto de Extensão (PEX) Descomplica, alinhado ao **ODS 9** (Indústria, inovação e infraestrutura). O piloto documenta a aplicação do kit em um **projeto de desenvolvimento de software** conduzido pela **RODRIGO HERPICH MULLER LTDA**.
-
----
-
-## Para quem é este repositório
-
-| Papel | O que você faz aqui |
-|-------|---------------------|
-| **Membro do time** | Roda skills no seu chat/IDE, cola resultados no Notion, executa o sprint no Jira/Trello |
-| **Facilitador** | Monta o Notion, conduz baseline e workshops com o time, coleta métricas |
-| **Reutilização** | Copia apenas as skills em `kit/skills/` e adapta o Notion ao seu fluxo |
+Developed as part of a Descomplica Extension Project (PEX), aligned with **SDG 9** (Industry, innovation and infrastructure). The pilot documents applying the kit to a **software development project** run by **RODRIGO HERPICH MULLER LTDA**.
 
 ---
 
-## O que contém o kit
+## Who this repository is for
 
-Tudo que você precisa para usar o 3APK está em [`kit/`](kit/):
-
-| Área | Caminho | Conteúdo |
-|------|---------|----------|
-| **Skills** | [`kit/skills/`](kit/skills/) | 5 skills modulares (4 refinement + 1 planning) |
-| **Notion** | [`kit/notion/`](kit/notion/) | Guia de setup + JSON Schemas |
-| **Exportação** | [`kit/exports/`](kit/exports/) | CSV canônico + receitas Jira/Trello |
-| **Fixtures** | [`kit/fixtures/`](kit/fixtures/) | Exemplos JSON/CSV de referência |
-
-**Princípios:**
-
-- **Human-in-the-loop** — nenhuma estimativa ou critério de aceite entra no sprint sem aprovação explícita do time.
-- **LLM-agnóstico** — skills em Markdown; funcionam em Cursor, Claude, ChatGPT, Copilot Chat, etc.
-- **Sem SaaS novo** — Notion + ferramentas atuais; export manual para Jira/Trello.
-
-Índice detalhado: [`kit/README.md`](kit/README.md).
+| Role | What you do here |
+|------|------------------|
+| **Team member** | Run skills in your chat/IDE, paste results into Notion, execute the sprint in Jira/Trello |
+| **Facilitator** | Set up Notion, run baseline and workshops with the team, collect metrics |
+| **Reuse** | Copy only the skills in `kit/skills/` and adapt Notion to your workflow |
 
 ---
 
-## Pré-requisitos
+## What the kit contains
 
-- Conta **Notion** (plano gratuito)
-- Qualquer **chat com LLM** ou IDE com agente
-- **Jira** ou **Trello** (opcional) — para levar o sprint plano à execução
-- ~30 minutos para montar o Notion seguindo o guia
+Everything you need to use 3APK lives in [`kit/`](kit/):
 
-**Não precisa:** servidor, API, build ou assinatura de ferramenta específica.
+| Area | Path | Contents |
+|------|------|----------|
+| **Skills** | [`kit/skills/`](kit/skills/) | 5 modular skills (4 refinement + 1 planning) |
+| **Notion** | [`kit/notion/`](kit/notion/) | Setup guide + JSON Schemas |
+| **Export** | [`kit/exports/`](kit/exports/) | Canonical CSV + Jira/Trello recipes |
+| **Fixtures** | [`kit/fixtures/`](kit/fixtures/) | Reference JSON/CSV examples |
+
+**Principles:**
+
+- **Human-in-the-loop** — no estimate or acceptance criterion enters the sprint without explicit team approval.
+- **LLM-agnostic** — Markdown skills; work in Cursor, Claude, ChatGPT, Copilot Chat, etc.
+- **No new SaaS** — Notion + your existing tools; manual export to Jira/Trello.
+
+Detailed index: [`kit/README.md`](kit/README.md).
 
 ---
 
-## Início rápido
+## Prerequisites
 
-### 1. Montar o hub no Notion
+- **Notion** account (free tier)
+- Any **LLM chat** or IDE with an agent
+- **Jira** or **Trello** (optional) — to carry the sprint plan into execution
+- ~30 minutes to set up Notion following the guide
 
-Siga [`kit/notion/SPEC.md`](kit/notion/SPEC.md) e crie os quatro bancos:
+**Not required:** server, API, build step, or a specific tool subscription.
 
-1. **Backlog** — histórias, DoR, status  
-2. **Sprints** — capacidade, datas  
-3. **Planning Worksheet** — compromisso do sprint (view: só DoR aprovado)  
-4. **Metrics** — KPIs por sprint  
+---
 
-Os campos devem seguir os schemas em [`kit/notion/schema/`](kit/notion/schema/).
+## Quick start
 
-### 2. Instalar as skills
+### 1. Set up the Notion hub
 
-Copie as pastas de `kit/skills/` para onde seu agente lê skills, **ou** anexe o `SKILL.md` no chat:
+Follow [`kit/notion/SPEC.md`](kit/notion/SPEC.md) and create the four databases:
 
-| Ordem | Skill | Arquivo |
-|-------|-------|---------|
-| 1 | Refinar pedido → user story | [`3apk-refine-story/SKILL.md`](kit/skills/3apk-refine-story/SKILL.md) |
-| 2 | User story → critérios de aceite | [`3apk-refine-ac/SKILL.md`](kit/skills/3apk-refine-ac/SKILL.md) |
-| 3 | AC → faixa de estimativa (hint) | [`3apk-refine-estimate/SKILL.md`](kit/skills/3apk-refine-estimate/SKILL.md) |
-| 4 | Dependências e riscos | [`3apk-refine-risks/SKILL.md`](kit/skills/3apk-refine-risks/SKILL.md) |
-| 5 | Planejamento de sprint | [`3apk-plan-sprint/SKILL.md`](kit/skills/3apk-plan-sprint/SKILL.md) |
+1. **Backlog** — stories, DoR, status  
+2. **Sprints** — capacity, dates  
+3. **Planning Worksheet** — sprint commitment (view: DoR-approved only)  
+4. **Metrics** — KPIs per sprint  
 
-### 3. Configurar exportação
+Fields must follow the schemas in [`kit/notion/schema/`](kit/notion/schema/).
 
-- Colunas CSV: [`kit/exports/COLUMNS.md`](kit/exports/COLUMNS.md)  
+### 2. Install the skills
+
+Copy folders from `kit/skills/` to where your agent reads skills, **or** attach the `SKILL.md` in chat:
+
+| Order | Skill | File |
+|-------|-------|------|
+| 1 | Raw request → user story | [`3apk-refine-story/SKILL.md`](kit/skills/3apk-refine-story/SKILL.md) |
+| 2 | User story → acceptance criteria | [`3apk-refine-ac/SKILL.md`](kit/skills/3apk-refine-ac/SKILL.md) |
+| 3 | AC → estimate range (hint) | [`3apk-refine-estimate/SKILL.md`](kit/skills/3apk-refine-estimate/SKILL.md) |
+| 4 | Dependencies and risks | [`3apk-refine-risks/SKILL.md`](kit/skills/3apk-refine-risks/SKILL.md) |
+| 5 | Sprint planning | [`3apk-plan-sprint/SKILL.md`](kit/skills/3apk-plan-sprint/SKILL.md) |
+
+### 3. Configure export
+
+- CSV columns: [`kit/exports/COLUMNS.md`](kit/exports/COLUMNS.md)  
 - **Jira:** [`kit/exports/jira-recipe.md`](kit/exports/jira-recipe.md)  
 - **Trello:** [`kit/exports/trello-recipe.md`](kit/exports/trello-recipe.md)  
-- **Outras ferramentas:** [`kit/exports/generic-fallback.md`](kit/exports/generic-fallback.md)  
+- **Other tools:** [`kit/exports/generic-fallback.md`](kit/exports/generic-fallback.md)  
 
-Referência: [`kit/fixtures/sample-worksheet-export.csv`](kit/fixtures/sample-worksheet-export.csv).
+Reference: [`kit/fixtures/sample-worksheet-export.csv`](kit/fixtures/sample-worksheet-export.csv).
 
-### 4. Validar o setup
+### 4. Validate the setup
 
-Use os exemplos em [`kit/fixtures/`](kit/fixtures/) e, se disponível, rode:
+Use the examples in [`kit/fixtures/`](kit/fixtures/) and run:
 
 ```bash
 python3 kit/fixtures/validate_fixtures.py
@@ -93,89 +93,89 @@ python3 kit/exports/test_export_recipes.py
 
 ---
 
-## Uso no dia a dia
+## Day-to-day usage
 
-### Refinar um item (nova feature, bug, melhoria)
+### Refine an item (new feature, bug, improvement)
 
-**Uma skill por vez**, com **aprovação humana** antes de avançar:
+**One skill at a time**, with **human approval** before moving on:
 
 ```
-Pedido bruto
-  → 3apk-refine-story    → aprovar user story
-  → 3apk-refine-ac       → aprovar critérios de aceite
-  → 3apk-refine-estimate → aprovar faixa de estimativa (hint)
-  → 3apk-refine-risks    → aprovar deps/riscos + DoR
-  → colar no Notion      → DoR_Pass ou DoR_Fail
+Raw request
+  → 3apk-refine-story    → approve user story
+  → 3apk-refine-ac       → approve acceptance criteria
+  → 3apk-refine-estimate → approve estimate range (hint)
+  → 3apk-refine-risks    → approve deps/risks + DoR
+  → paste into Notion    → DoR_Pass or DoR_Fail
 ```
 
-- Uma pergunta por mensagem (múltipla escolha quando possível).  
-- A IA **não** fecha estimativa final — o time ajusta no planning.  
-- Itens com DoR reprovado **não entram** no sprint.
+- One question per message (multiple choice when possible).  
+- The AI does **not** set the final estimate — the team adjusts during planning.  
+- Items that fail DoR **do not enter** the sprint.
 
-Exemplos: [`kit/fixtures/refine-story-example.md`](kit/fixtures/refine-story-example.md) e demais `refine-*-example.md`.
+Examples: [`kit/fixtures/refine-story-example.md`](kit/fixtures/refine-story-example.md) and other `refine-*-example.md` files.
 
-### Planejar um sprint
+### Plan a sprint
 
-1. View **Sprint Candidates** no Notion (só `DoR_Pass`).  
-2. Registrar sprint em **Sprints** com `capacity_hours`.  
-3. Invocar **`3apk-plan-sprint`** com histórias + capacidade.  
-4. Preencher `human_adjustment_log` para cada estimativa alterada.  
-5. Aprovar o sprint draft (Sprint Lock).  
-6. Exportar CSV e importar no Jira/Trello.
+1. Open the **Sprint Candidates** view in Notion (`DoR_Pass` only).  
+2. Register the sprint in **Sprints** with `capacity_hours`.  
+3. Invoke **`3apk-plan-sprint`** with stories + capacity.  
+4. Fill `human_adjustment_log` for every changed estimate.  
+5. Approve the sprint draft (Sprint Lock).  
+6. Export CSV and import into Jira/Trello.
 
-Exemplo: [`kit/fixtures/plan-sprint-example.md`](kit/fixtures/plan-sprint-example.md).
+Example: [`kit/fixtures/plan-sprint-example.md`](kit/fixtures/plan-sprint-example.md).
 
-### Registrar métricas
+### Record metrics
 
-Após cada sprint, uma linha em **Metrics**:
+After each sprint, add one row in **Metrics**:
 
-| KPI | Definição resumida |
-|-----|-------------------|
-| **EAR** | Soma(horas reais) / Soma(horas estimadas), ≥5 histórias |
-| **DoR %** | Histórias com 4 gates / total planejadas |
-| **Planning (min)** | Duração × participantes (refinement + planning) |
-| **Reopens** | Histórias reabertas por lacuna de AC/escopo |
+| KPI | Short definition |
+|-----|------------------|
+| **EAR** | Sum(actual hours) / Sum(estimated hours), ≥5 stories |
+| **DoR %** | Stories with 4 gates passed / total planned |
+| **Planning (min)** | Duration × participants (refinement + planning) |
+| **Reopens** | Stories reopened due to AC/scope gaps |
 
-Schema completo: [`kit/notion/schema/metric-snapshot.json`](kit/notion/schema/metric-snapshot.json).
+Full schema: [`kit/notion/schema/metric-snapshot.json`](kit/notion/schema/metric-snapshot.json).
 
 ---
 
-## Piloto sugerido (4–8 semanas)
+## Suggested pilot (4–8 weeks)
 
-| Fase | Semanas | Atividades |
-|------|---------|------------|
-| **Prep** | 0 | Montar Notion; distribuir skills |
-| **Baseline** | 1 | 1 ciclo **sem** o kit; congelar KPIs |
-| **Intervenção** | 2–5 | Skills + DoR + planning a cada 1–2 semanas |
-| **Evidências** | 6–8 | Comparar antes/depois; consolidar resultados |
+| Phase | Weeks | Activities |
+|-------|-------|------------|
+| **Prep** | 0 | Set up Notion; distribute skills |
+| **Baseline** | 1 | One cycle **without** the kit; freeze KPIs |
+| **Intervention** | 2–5 | Skills + DoR + planning every 1–2 weeks |
+| **Evidence** | 6–8 | Compare before/after; consolidate results |
 
-Relatório PEX de referência (acadêmico): [`docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf`](docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf).
+Reference PEX report (academic): [`docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf`](docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf).
 
 ---
 
-## Estrutura do repositório
+## Repository structure
 
 ```
 3APK/
 ├── kit/
-│   ├── skills/       # 5 skills modulares
+│   ├── skills/       # 5 modular skills
 │   ├── notion/       # SPEC.md + JSON Schemas
-│   ├── exports/      # COLUMNS.md + receitas Jira/Trello
-│   └── fixtures/     # exemplos JSON/CSV
+│   ├── exports/      # COLUMNS.md + Jira/Trello recipes
+│   └── fixtures/     # JSON/CSV examples
 ├── docs/
-│   └── relatorio-pex/   # relatório PEX (PDF + HTML)
+│   └── relatorio-pex/   # PEX report (PDF + HTML)
 └── README.md
 ```
 
 ---
 
-## Referências
+## References
 
-- [Guia PEX Descomplica](https://pexguiadefinitivo.vercel.app/)
-- ODS 9 — [Indústria, inovação e infraestrutura (ONU)](https://www.un.org/sustainabledevelopment/infrastructure-industrialization/)
+- [Descomplica PEX Guide](https://pexguiadefinitivo.vercel.app/) (Portuguese)
+- SDG 9 — [Industry, innovation and infrastructure (UN)](https://www.un.org/sustainabledevelopment/infrastructure-industrialization/)
 
 ---
 
-## Licença e uso
+## License and use
 
-Material de extensão universitária e kit aberto para adaptação em times pequenos. Ao reutilizar, mantenha o protocolo de aprovação humana em cada etapa do refinamento.
+University extension material and an open kit for adaptation by any team. When reusing, keep the human-approval protocol at every refinement step.

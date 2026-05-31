@@ -1,6 +1,6 @@
 # 3APK Kit
 
-AI-Augmented Agile Planning Kit — artefatos portáveis para refinement, sprint planning e exportação.
+AI-Augmented Agile Planning Kit — portable artifacts for refinement, sprint planning, and export.
 
 ## Directory Map
 
@@ -19,7 +19,7 @@ AI-Augmented Agile Planning Kit — artefatos portáveis para refinement, sprint
 4. **Sprint planning** — `3apk-plan-sprint` on DoR-passed items; export via [`exports/COLUMNS.md`](exports/COLUMNS.md).
 5. **Validate** — [`fixtures/`](fixtures/) + `python3 fixtures/validate_fixtures.py`.
 
-Full usage guide (Portuguese): root [`README.md`](../README.md).
+Full usage guide: root [`README.md`](../README.md).
 
 ## Architecture
 
