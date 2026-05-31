@@ -31,8 +31,6 @@ SKILL_PATHS = (
     "kit/skills/3apk-plan-sprint/SKILL.md",
 )
 
-PEX_REPORT = "docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf"
-
 
 def read_readme() -> str:
     assert README.is_file(), f"Missing {README}"
@@ -97,10 +95,9 @@ def test_llm_agnostic_note() -> None:
     assert re.search(r"LLM agnostic|LLM-agnostic", text, re.I)
 
 
-def test_pex_report_linked() -> None:
+def test_no_docs_references() -> None:
     text = read_readme()
-    assert PEX_REPORT in text
-    assert (ROOT / PEX_REPORT).is_file(), f"PEX report missing: {PEX_REPORT}"
+    assert "docs/" not in text, "README must not reference docs/"
 
 
 def test_all_relative_links_resolve() -> None:
@@ -130,7 +127,7 @@ def main() -> int:
         test_all_five_skills_linked,
         test_partner_company_documented,
         test_llm_agnostic_note,
-        test_pex_report_linked,
+        test_no_docs_references,
         test_all_relative_links_resolve,
         test_kit_readme_linked,
     ]

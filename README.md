@@ -149,8 +149,6 @@ Full schema: [`kit/notion/schema/metric-snapshot.json`](kit/notion/schema/metric
 | **Intervention** | 2–5 | Skills + DoR + planning every 1–2 weeks |
 | **Evidence** | 6–8 | Compare before/after; consolidate results |
 
-Reference PEX report (academic): [`docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf`](docs/relatorio-pex/relatorio-pex-ads-iii-william-santos-goncalves.pdf).
-
 ---
 
 ## Repository structure
@@ -162,8 +160,6 @@ Reference PEX report (academic): [`docs/relatorio-pex/relatorio-pex-ads-iii-will
 │   ├── notion/       # SPEC.md + JSON Schemas
 │   ├── exports/      # COLUMNS.md + Jira/Trello recipes
 │   └── fixtures/     # JSON/CSV examples
-├── docs/
-│   └── relatorio-pex/   # PEX report (PDF + HTML)
 └── README.md
 ```
 
