@@ -63,6 +63,34 @@ Fields must follow the schemas in [`kit/notion/schema/`](kit/notion/schema/).
 
 ### 2. Install the skills
 
+**Option A — Skills CLI (Cursor and other agents)**
+
+From the repository root, after cloning:
+
+```bash
+# list available skills
+npx skills add ./kit/skills --list
+
+# install all five (project scope)
+npx skills add ./kit/skills --agent cursor --all -y
+
+# install one skill
+npx skills add ./kit/skills --agent cursor --skill 3apk-refine-story -y
+
+# install globally (available in every project)
+npx skills add ./kit/skills --agent cursor --all -g -y
+```
+
+From GitHub (no local clone):
+
+```bash
+npx skills add iwilldotdev/3apk --agent cursor --all -y
+```
+
+Skills reference kit artifacts (schemas, exports, fixtures). Install from a **clone of this repo** when you need those relative links to resolve. Discover more skills at [skills.sh](https://skills.sh/).
+
+**Option B — Manual**
+
 Copy folders from `kit/skills/` to where your agent reads skills, **or** attach the `SKILL.md` in chat:
 
 | Order | Skill | File |
